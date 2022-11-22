@@ -35,7 +35,10 @@ createApp({
 
     return {
         currentIndex:0,
-        listSlides:slides};
+        listSlides:slides,
+        isMouseHoverThumb:false,
+        intervall:null
+    };
   },
   methods:{
     goPrev(){
@@ -60,7 +63,32 @@ createApp({
     onThumbImage(index){
         this.currentIndex=index;
 
+    },
+    hoverThumbImage(){
+        this.isMouseHoverThumb=true;
+        this.startIntervallCarosel();
+
+    },outThumbImage(){
+        this.isMouseHoverThumb=false;
+        this.startIntervallCarosel();
+
     }
+    ,startIntervallCarosel(){
+        if(!this.isMouseHoverThumb){
+            this.intervall=setInterval(() => {
+                this.goNext();
+                
+            }, 3000);
+        }else{
+            clearInterval(this.intervall);
+        }
+        
+    }
+
+  },
+  mounted(){
+    console.log("mounted");
+    this.startIntervallCarosel();
 
   }
 }).mount("#app")

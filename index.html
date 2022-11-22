@@ -29,7 +29,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="goPrev()"></div>
                     <div class="next" @click="goNext()"></div>
-                    <div class="thumb " :class="(i===currentIndex) ? 'active' :''" v-for="(game,i) in listSlides" @click="onThumbImage(i)">
+                    <div class="thumb " :class="(i===currentIndex) ? 'active' :''" v-for="(game,i) in listSlides" @click="onThumbImage(i)" @mouseover="hoverThumbImage()" @mouseout="outThumbImage()">
                         <img :src="game.image" :alt="game.title" />
                     </div>
                    
