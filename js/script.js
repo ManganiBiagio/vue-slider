@@ -64,15 +64,11 @@ createApp({
         this.currentIndex=index;
 
     },
-    hoverThumbImage(){
-        this.isMouseHoverThumb=true;
+    hoverThumbImage(boolean){
+        this.isMouseHoverThumb=boolean;
         this.startIntervallCarosel();
 
-    },outThumbImage(){
-        this.isMouseHoverThumb=false;
-        this.startIntervallCarosel();
-
-    }
+     }
     ,startIntervallCarosel(){
         if(!this.isMouseHoverThumb){
             this.intervall=setInterval(() => {
