@@ -22,7 +22,7 @@ const slides = [
     }
 ];
 
-console.log(slides);
+
 
 
 const { createApp } = Vue;
@@ -39,10 +39,27 @@ createApp({
   },
   methods:{
     goPrev(){
-        this.currentIndex--;
+        if(this.currentIndex===0){
+            
+            this.currentIndex=(this.listSlides.length-1);
+
+        }else{
+            this.currentIndex--;
+        }
+        
     },
     goNext(){
-        this.currentIndex++;
+        if(this.currentIndex===this.listSlides.length-1){
+            this.currentIndex=0;
+
+        }else{
+            this.currentIndex++;
+        }
+        
+    },
+    onThumbImage(index){
+        this.currentIndex=index;
+
     }
 
   }
