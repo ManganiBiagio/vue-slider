@@ -23,3 +23,27 @@ const slides = [
 ];
 
 console.log(slides);
+
+
+const { createApp } = Vue;
+
+
+createApp({
+  
+  data () {
+    
+
+    return {
+        currentIndex:0,
+        listSlides:slides};
+  },
+  methods:{
+    goPrev(){
+        this.currentIndex--;
+    },
+    goNext(){
+        this.currentIndex++;
+    }
+
+  }
+}).mount("#app")
